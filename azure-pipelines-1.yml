@@ -17,7 +17,8 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
+    # mavenOptions: '-Xmx3072m'
+    mavenOptions: 'clean compile test -P single'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
@@ -26,3 +27,15 @@ steps:
     goals: 'package'
 
 - task: BrowserStackResults@0
+
+
+# - task: BrowserStackConfig@0
+#   inputs:
+#     BrowserStackServiceEndPoint: 'BrowserStack Auth'
+# - script: |
+#     echo Starting the build
+#     mvn clean
+#     mvn compile
+#     mvn test -P single
+#   displayName: 'Build with Maven'
+# - task: BrowserStackResults@0
