@@ -1,4 +1,5 @@
 # Maven
+
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -10,6 +11,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: BrowserStackConfig@0
+  inputs:
+    BrowserStackServiceEndPoint: 'BrowserStack Auth'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -18,5 +22,7 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testResultsFiles: '**/browserstack-reports/REPORT-*.xml'
     goals: 'package'
+
+- task: BrowserStackResults@0
