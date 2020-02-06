@@ -18,7 +18,8 @@
     },
     "safari": {
       "os": "OS X",
-      "browser": "safari"
+      "browser": "safari",
+      "browserVersion": "12"
     },
     "ie": {
       "browser": "internet explorer"
