@@ -13,7 +13,7 @@ public class SingleTest extends BrowserStackTestNGTest {
         System.out.println("Username: " + System.getenv("BROWSERSTACK_USERNAME"));
         System.out.println("Access Key: " + System.getenv("BROWSERSTACK_ACCESS_KEY"));
         driver.get("https://www.google.com/ncr");
-        WebElement element = driver.findElement(By.name("q"));
+        WebElement element = driver.findElement(By.name("q-jndknfasda"));
         element.sendKeys("BrowserStack");
         element.submit();
         Thread.sleep(5000);
